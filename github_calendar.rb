@@ -1,5 +1,7 @@
 require 'matrix'
 require 'pp'
+require 'date'
+require 'time'
 
 =begin
 1 8 15 22
@@ -16,4 +18,13 @@ calendar = Matrix.build(7, 52) { |row, col|
 }
 
 calendar.to_a.each {|r| puts r.inspect}
+
+=begin
+0 0 1
+3 0 1
+2 1 2
+1 0 3
+=end
+
+first_column = ((Date.today.prev_year.prev_day(7))..Date.today.prev_year).select(&:sunday?).first
 
